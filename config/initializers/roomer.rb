@@ -28,7 +28,7 @@ Roomer.setup do |config|
   #     config.tenant_url_identifier_column
   #     config.tenant_schema_name_column
   # The default value is :tenants
-  # config.tenants_table = :tenants
+  # config.tenants_table = :companies
 
   # Configure the column name that strores the schema name in the tenants tables. 
   # The default value is :schema_name
