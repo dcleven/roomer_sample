@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
   
   def update
     @company = MediaOutlet.find params[:id]
+    $stderr.puts "outlet: #{@outlet.inspect}"
     @company.update_outlet(params[:outlet])
     @company.save!
     render :xml => @company, :status => :ok
