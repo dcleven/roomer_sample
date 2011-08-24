@@ -17,6 +17,7 @@ group :development do
 #	gem 'silent-postgres', '0.0.7'
   gem 'rspec-rails', '2.5.0'
 	gem 'heroku_san'
+	gem 'pry'
 end
 
 group :test do
@@ -26,4 +27,5 @@ group :test do
   gem 'test_xml', '0.1.2'
 #	gem 'silent-postgres', '0.0.7'
 	gem 'database_cleaner', '~> 0.6.7'
+	gem 'pry'
 end
