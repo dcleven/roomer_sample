@@ -27,8 +27,8 @@ describe CompaniesController do
     it "should update relationship" do
       @owner.should_not be_nil
       @outlet.should_not be_nil
-      put :update, :id => @owner.id, :company => @owner.to_json, :outlet => @outlet
-      #@owner.reload.outlets[0].should == @outlet
+      put :update, :id => @owner.id, :company => @owner, :outlet => @outlet
+      @owner.reload.outlets[0].should == @outlet
     end
   end
 end

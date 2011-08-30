@@ -1,8 +1,8 @@
 class RoomerCreateOwnerRelationships < ActiveRecord::Migration
   def self.up
     create_table(:owner_relationships) do |t|
-      t.integer :owner_id
-      t.integer :company_id
+      t.integer :parent_id
+      t.integer :child_id
       t.timestamps
     end
   end

@@ -12,8 +12,8 @@ gem 'validates_timeliness', '~> 3.0.2'
 #gem 'mysql'
 gem 'pg', "~>0.11.0"
 
-gem 'roomer', :git => 'git://github.com/gosuri/roomer.git', :branch => 'develop'
-# gem 'roomer', :path => '~/rails_projects/roomer'
+#gem 'roomer', :git => 'git://github.com/gosuri/roomer.git', :branch => 'develop'
+gem 'roomer', :path => '~/rails_projects/roomer'
 group :development do
 #	gem 'silent-postgres', '0.0.7'
   gem 'rspec-rails', '2.5.0'

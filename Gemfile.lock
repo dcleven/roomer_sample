@@ -1,7 +1,5 @@
-GIT
-  remote: git://github.com/gosuri/roomer.git
-  revision: 343e9e01c820ad1fd70cccbab8c720204fbc8ada
-  branch: develop
+PATH
+  remote: ~/rails_projects/roomer
   specs:
     roomer (0.0.4)
       rails (~> 3.0.9)

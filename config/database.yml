@@ -5,8 +5,8 @@ development:
   encoding: unicode
   database: roomer_sample2-dev
   pool: 5
-  username: gosuri
-  # password: Mongo007
+  username: postgres
+  password: Mongo007
   timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
@@ -17,6 +17,6 @@ test:
     encoding: unicode
     database: roomer_sample2-test
     pool: 5
-    username: gosuri
-    #password: Mongo007    
+    username: postgres
+    password: Mongo007    
     timeout: 5000   
