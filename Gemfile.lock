@@ -1,7 +1,7 @@
 PATH
   remote: ~/rails_projects/roomer
   specs:
-    roomer (0.0.4)
+    roomer (0.0.6)
       rails (~> 3.0.9)
 
 GEM
