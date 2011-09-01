@@ -33,6 +33,8 @@ describe Company do
     stn1.relations_to_advertisers[0].separation.should == 100
     stn1.relations_to_advertisers[0].contact.should == 'doug'
     stn1.relations_to_advertisers[0].advertiser.should == adv1
+    
+    binding.pry
   end
   
 end
