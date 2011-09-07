@@ -5,7 +5,7 @@ describe TenantOutlet do
     @tenant = Tenant.create :url_identifier => 'emmis.example.com', :schema_name => 'emmis'
     Roomer.current_tenant = @tenant
     @outlet = MediaOutlet.create :name => 'KAAA-AM'
-    @tenant_outlet = TenantOutlet.create! :media_outlet => @outlet, :name => @outlet.name
+    @tenant_outlet = TenantOutlet.create! :media_outlet => @outlet, :name => @outlet.name, :type => 'MediaOutlet'
     @advertiser = Advertiser.create! :name => 'Test Advertiser'
   end
   
@@ -28,4 +28,23 @@ describe TenantOutlet do
     @tenant_outlet.relations_to_advertisers[0].addresses.size.should == 2
   end
   
+  it "should be part of a group" do
+    @owner = MediaOutlet.create! :name => 'Media Organization'
+    @tenant_owner = TenantOutlet.create! :media_outlet => @owner, :name => 'Media Org', :type => 'MediaOrganization'
+    @tenant_owner.outlets << @tenant_outlet
+    @tenant_owner.save!
+    @tenant_owner.reload
+    @tenant_owner.outlets[0].should == @tenant_outlet
+    @tenant_outlet.owners[0].should == @tenant_owner
+    
+    # a group can be created as a OutletGroup owned by the MediaOrganization and owning MediaOutlets
+    # Media Org owns the SF Market which owns KAAA-AM
+    @tenant_group = TenantOutlet.create! :media_outlet => @owner, :name => 'SF Market', :type => 'OutletGroup'
+    @tenant_group.owners << @tenant_owner
+    @tenant_group.outlets << @tenant_outlet
+    @tenant_group.save!
+    @tenant_owner.reload
+    @tenant_owner.outlets[1].should == @tenant_group
+    @tenant_group.outlets[0].should == @tenant_outlet
+  end
 end
