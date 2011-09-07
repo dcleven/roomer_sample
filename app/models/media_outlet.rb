@@ -1,6 +1,14 @@
 class MediaOutlet < Company
   roomer :shared
   
+  # the global media_outlet can own many tenant_outlets
+  # for example a radio global outlet may have many tenant/outlet specific outlets
+  # like web site, stream that all fall under the radio station company
+  has_many    :tenant_outlets,
+              :foreign_key           => :company_id
+  
+  
+  # media_outlet has many advertisers
   has_many    :relations_to_advertisers, 
               :class_name => 'AdvertiserRelationship',
               :foreign_key => 'company_id'

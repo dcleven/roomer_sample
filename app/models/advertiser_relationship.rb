@@ -4,6 +4,8 @@ class AdvertiserRelationship < ActiveRecord::Base
 
   belongs_to :advertiser,   :foreign_key => 'advertiser_id'
   belongs_to :media_outlet, :foreign_key => 'company_id'
+  
+  has_many :addresses, :as => :addressable
 
   def advertiser=(val)
     @advertiser = val
